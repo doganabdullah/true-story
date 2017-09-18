@@ -1,0 +1,373 @@
+/* Lookup */
+INSERT INTO K_KLAVUZ (
+   ADI, ID, KAYITEDEN, 
+   KAYITZAMANI) 
+VALUES ( 'Mahmud',
+ 101,
+ 'Mahmud Mahmudyan',
+ (select CURRENT_TIMESTAMP()) );
+ 
+ 
+ /* LookUpDetay */
+ INSERT INTO K_KLAVUZ_DETAY (
+   ADI, ID, KAYITEDEN, 
+   KAYITZAMANI, LOOKUPID) 
+VALUES ( 'Mahmudiye',
+  101,
+ 'Mahmud Mahmudyan',
+ (select CURRENT_TIMESTAMP()),
+ 101 );
+
+/* Hat ekleme */
+INSERT INTO K_HAT (
+   HATADI, HATISLETME, HATKODU, 
+   HATTIPI, HATTURU, ID, 
+   ISAKTIF, KAYITEDEN, KAYITZAMANI, 
+   SEFERSURESI) 
+VALUES ( 'Kayaşehir',
+ 3,
+ '79T',
+ 2,
+ 'Metrobüs',
+ 101,
+ 1,
+ 'Mahmud Mahmudyan',
+(select CURRENT_TIMESTAMP()),
+ 35 );
+
+
+INSERT INTO K_HAT (
+   HATADI, HATISLETME, HATKODU, 
+   HATTIPI, HATTURU, ID, 
+   ISAKTIF, KAYITEDEN, KAYITZAMANI, 
+   SEFERSURESI) 
+VALUES ( 'Kayaşehir',
+ 3,
+ '11ÜS',
+ 2,
+ 'Metrobüs',
+ 102,
+ 1,
+ 'Mahmud Mahmudyan',
+(select CURRENT_TIMESTAMP()),
+ 35 );
+
+
+
+
+/*Güzergah ekleme*/
+INSERT INTO K_GUZERGAH (
+   GUZERGAHKODU, HATID, ID, 
+   ISGIDISYONU, KAYITEDEN, KAYITZAMANI) 
+VALUES ( '79T_D_D0',
+ 101,
+ 101,
+ 1,
+ 'BEN',
+ (select CURRENT_TIMESTAMP()) );
+
+INSERT INTO K_GUZERGAH (
+   GUZERGAHKODU, HATID, ID, 
+   ISGIDISYONU, KAYITEDEN, KAYITZAMANI) 
+VALUES ( '11Ü_D_D0',
+ 101,
+ 102,
+ 2,
+ 'SEN',
+ (select CURRENT_TIMESTAMP()) );
+
+
+
+/*
+ * Operator ekleme
+*/
+ INSERT INTO K_OPERATOR (
+   KODU, ID, KAYITEDEN, 
+   KAYITZAMANI, ADI) 
+VALUES ( 'IETT',
+ 101,
+ 'Mahmud',
+ (select CURRENT_TIMESTAMP()),
+ 'Mahmudiye' );
+
+/*
+ * ARaç ekleme
+*/
+INSERT INTO K_ARAC (
+   ARACCINSKODU, ARACDURUMKODU, ARACGSM, 
+   ARACMARKAID, ARACTIPKODU, ARACTURKODU, 
+   GARAJNOKTAID, GSMSAHIP, ID, 
+   KAPINUMARASI, KAYITEDEN, KAYITZAMANI, 
+   MARKAMODEL, OPERATORID, OPERATORKODU, 
+   OZURLUDESTEKKODU, PLAKA, ROTASYONGRUPKODU) 
+VALUES ( 'CCC',
+ 'CcC',
+ '05067475253',
+ 2,
+ 'KKK',
+ 'LeLeLe',
+ 5,
+ '05067475253',
+ 101,
+ 'M1001',
+ 'Mahmud Mahmudyan',
+ (select CURRENT_TIMESTAMP()),
+ 'MarkaModel',
+ 101,
+ 'CeCeCe',
+ 'uasdjd',
+ '23 32 23',
+ '90' );
+ 
+/*
+ * ARaç ekleme
+*/
+ INSERT INTO K_ARAC (
+   ARACCINSKODU, ARACDURUMKODU, ARACGSM, 
+   ARACMARKAID, ARACTIPKODU, ARACTURKODU, 
+   GARAJNOKTAID, GSMSAHIP, ID, 
+   KAPINUMARASI, KAYITEDEN, KAYITZAMANI, 
+   MARKAMODEL, OPERATORID, OPERATORKODU, 
+   OZURLUDESTEKKODU, PLAKA, ROTASYONGRUPKODU) 
+VALUES ( 'CCC',
+ 'CcC',
+ '05067475253',
+ 2,
+ 'KKK',
+ 'LeLeLe',
+ 5,
+ '05067475253',
+ 102,
+ 'K5254',
+ 'Mahmud Mahmudyan',
+(select CURRENT_TIMESTAMP()),
+ 'MarkaModel',
+ 101,
+ 'CeCeCe',
+ 'uasdjd',
+ '23 32 23',
+ '90' );
+ 
+
+ INSERT INTO H_ARAC_DURUM (
+MACADRES,IP,DEGER,ARACID,KLAVUZDETAYID,
+ ID, KAYITEDEN, KAYITZAMANI)
+ VALUES('MAC1212', '192.168.1.5',
+ '30',101,101,101,
+ 'Mahmud Mahmudyan',
+ (select CURRENT_TIMESTAMP()));
+
+
+ INSERT INTO H_ARAC_DURUM (
+MACADRES,IP,DEGER,ARACID,KLAVUZDETAYID,
+ ID, KAYITEDEN, KAYITZAMANI)
+ VALUES('MAC1212', '10.107.7.160',
+ '30',102,101,102,
+ 'Mahmud Mahmudyan',
+(select CURRENT_TIMESTAMP()));
+
+
+ INSERT INTO H_ARAC_DURUM (
+MACADRES,IP,DEGER,ARACID,KLAVUZDETAYID,
+ ID, KAYITEDEN, KAYITZAMANI)
+ VALUES('MAC1213', '10.1.1.10',
+ '30',103,103,103,
+ 'Mahmud Mahmudyan',
+(select CURRENT_TIMESTAMP()));
+
+/*
+ * Görev ekleme	
+*/
+INSERT INTO  H_GOREV (
+   ARACID, BASLANGICZAMANI, BITISZAMANI, 
+   DURAGAGIRISZAMANI, 
+   DUZENLENENBASLANGICZAMANI, GOREVTIPIKODU, 
+   GUZERGAHID, HATID, ID, 
+   KAYITEDEN, KAYITZAMANI, GOREVDURUMID, 
+   PLANDURUMKODU, PLANLANANBASLANGICZAMANI, SERVISNO, 
+   SONDEGISIMZAMANI, TABELA, TAHMINIBITISZAMANI, 
+   TOPLAMKM, SOFORID, OLUKM) 
+VALUES ( 101,
+(parsedatetime('06-03-2017 11:25:00', 'dd-MM-yyyy hh:mm:ss')),
+(parsedatetime('06-03-2018 11:25:00', 'dd-MM-yyyy hh:mm:ss')),
+(select CURRENT_TIMESTAMP()),
+(select CURRENT_TIMESTAMP()),
+ -1,
+ 101,
+ 101,
+ 101,
+ 'Mahmud MahmudYan',
+ (select CURRENT_TIMESTAMP()),
+ 2,
+ 'PA',
+ (parsedatetime('28-03-2017 13:35:00', 'dd-MM-yyyy hh:mm:ss')),
+ '3',
+(select CURRENT_TIMESTAMP()),
+ 3,
+ (parsedatetime('09-03-2017 11:25:00', 'dd-MM-yyyy hh:mm:ss')),
+ 0, 
+ 101,false);
+ 
+ /*
+ * Görev ekleme	
+*/
+INSERT INTO  H_GOREV (
+   ARACID, BASLANGICZAMANI, BITISZAMANI, 
+   DURAGAGIRISZAMANI, 
+   DUZENLENENBASLANGICZAMANI, GOREVTIPIKODU,
+   GUZERGAHID, HATID, ID, 
+   KAYITEDEN, KAYITZAMANI, GOREVDURUMID, 
+   PLANDURUMKODU, PLANLANANBASLANGICZAMANI, SERVISNO, 
+   SONDEGISIMZAMANI, TABELA, TAHMINIBITISZAMANI, 
+   TOPLAMKM, SOFORID, OLUKM) 
+VALUES ( 102,
+(parsedatetime('06-03-2017 11:25:00', 'dd-MM-yyyy hh:mm:ss')),
+(parsedatetime('06-03-2018 11:25:00', 'dd-MM-yyyy hh:mm:ss')),
+(select CURRENT_TIMESTAMP()),
+(select CURRENT_TIMESTAMP()),
+ 102,
+ 102,
+ 102,
+ 102,
+ 'Mahmud MahmudYan',
+ (select CURRENT_TIMESTAMP()),
+ 2,
+ 'PA',
+ (parsedatetime('06-03-2017 10:25:00', 'dd-MM-yyyy hh:mm:ss')),
+ '3',
+(select CURRENT_TIMESTAMP()),
+ 3,
+ (parsedatetime('09-03-2017 11:25:00', 'dd-MM-yyyy hh:mm:ss')),
+ 0, 
+ 102,
+ false);
+ 
+ 
+ /*
+ * Görev ekleme	
+*/
+INSERT INTO  H_GOREV (
+   ARACID, BASLANGICZAMANI, BITISZAMANI, 
+   DURAGAGIRISZAMANI, 
+   DUZENLENENBASLANGICZAMANI, GOREVTIPIKODU, 
+   GUZERGAHID, HATID, ID, 
+   KAYITEDEN, KAYITZAMANI, GOREVDURUMID, 
+   PLANDURUMKODU, PLANLANANBASLANGICZAMANI, SERVISNO, 
+   SONDEGISIMZAMANI, TABELA, TAHMINIBITISZAMANI, 
+   TOPLAMKM, SOFORID, OLUKM) 
+VALUES ( 101,
+(parsedatetime('06-03-2017 11:25:00', 'dd-MM-yyyy hh:mm:ss')),
+(parsedatetime('06-03-2018 11:25:00', 'dd-MM-yyyy hh:mm:ss')),
+(select CURRENT_TIMESTAMP()),
+(select CURRENT_TIMESTAMP()),
+ -1,
+ 101,
+ 101,
+ 103,
+ 'Mahmud MahmudYan',
+ (select CURRENT_TIMESTAMP()),
+ 2,
+ 'PA',
+ (parsedatetime('28-03-2017 13:35:00', 'dd-MM-yyyy hh:mm:ss')),
+ '3',
+(select CURRENT_TIMESTAMP()),
+ 3,
+ (parsedatetime('09-03-2017 11:25:00', 'dd-MM-yyyy hh:mm:ss')),
+ 0, 
+ 101,false);
+
+
+ /*
+ * PaketMesaj Ekleme
+ */
+ INSERT INTO PAKETMESAJ(ID, KAYITEDEN, KAYITZAMANI, TARIH) VALUES(
+ 205,
+ 'Abdullah',
+ (select CURRENT_TIMESTAMP()),
+(select CURRENT_TIMESTAMP())
+ );
+
+ /*
+ * Şoför ekleme
+ */
+ INSERT INTO K_SOFOR (
+   ADI, GARAJNOKTAID, GSM, 
+   ID, KAYITEDEN, KAYITZAMANI, 
+   OPERATORID, SICILNUMARASI, SOYADI) 
+VALUES ( 'Mahmud',
+ 2,
+ '05067475253',
+ 102,
+ 'Mahmud Mahmudyan',
+ (select CURRENT_TIMESTAMP()),
+ 501,
+ '699999',
+ 'Mahmıyan' );
+ 
+ 
+ /*
+ * K_GUZERGAH_NOKTASI ekleme
+ */
+INSERT INTO K_GUZERGAH_NOKTASI 
+(ID,KAYITEDEN,KAYITZAMANI, SIRANO,NOKTAID,GUZERGAHID)
+VALUES(1,'TaskServer',(select CURRENT_TIMESTAMP()),2,101,101);
+
+INSERT INTO K_GUZERGAH_NOKTASI 
+(ID,KAYITEDEN,KAYITZAMANI, SIRANO,NOKTAID,GUZERGAHID)
+VALUES(2,'TaskServer',(select CURRENT_TIMESTAMP()),1,102,101);
+
+ /*
+ * Durak Ekleme
+ */
+ INSERT INTO K_NOKTA (
+   DURAKTIPIKODU, ID, ISAKTIF, 
+   ISENERJI, ISGIDIS, KAYITEDEN, 
+   KAYITZAMANI, NOKTAADI, NOKTAKODU, 
+   NOKTATIPIKODU, XKOORDINAT, YKOORDINAT) 
+VALUES ( '101',
+ 101,
+ 1,
+ 1,
+ 1,
+ 'Mahmıd Mahmıdyan',
+ (select CURRENT_TIMESTAMP()),
+ 'A Durağı',
+ 'AD',
+ 'Ad',
+ 28.466567,
+ 41.675454 );
+ 
+ 
+  
+ /**
+ *H_ARACILETILENMESAJ tablosuna ekleme
+ */
+ INSERT INTO H_ARACILETILENMESAJ (ID, KAYITEDEN, KAYITZAMANI, ONAYTIPID, DONUSTIPID, HATID, MESAJICERIGI, ARACID, YOLCUMESAJIMI) 
+VALUES 
+('1', 
+'FYS', 
+(select CURRENT_TIMESTAMP()), 
+'1', 
+'1',
+'101', 
+'Hanımların dikkatine!1 Overlock makinası ayağınıza geldi. Her türlü halı, kilim, battaniye kenarına overlock çekilir. Override edilir.', 
+'101',
+ 'false');
+ 
+ 
+ /**
+ *K_SOFOR Ekleme
+ */
+ 
+ INSERT INTO K_SOFOR(ID, KAYITEDEN,	KAYITZAMANI, GSM,GARAJNOKTAID, 	ADI,OPERATORID,	SICILNUMARASI,SOYADI)
+ VALUES
+ ('101',
+ 'FYS',
+ (select CURRENT_TIMESTAMP()),
+ '05067475253',
+ '1',
+ 'Ragıp',
+ '502',
+ 'ER234H',
+ 'Ragıbyan');
+ 
